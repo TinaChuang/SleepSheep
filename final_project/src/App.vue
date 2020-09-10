@@ -13,11 +13,15 @@
 export default {
   data () {
     return {
-      isLoading: false
+      isLoading: true
     }
   },
   mounted () {
-    // this.isLoading = true
+    this.$http.get(`${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/products`)
+      .then((res) => {
+        console.log(res)
+        this.isLoading = false
+      })
   }
 }
 </script>
