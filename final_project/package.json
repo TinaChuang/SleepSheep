@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "axios": "^0.20.0",
-    "core-js": "^3.6.5",
+    "bootstrap": "^4.5.2",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1",
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-loading-overlay": "^3.4.0",
@@ -44,7 +46,9 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
+    "rules": {
+      "no-console": "off"
+    }
   },
   "browserslist": [
     "> 1%",

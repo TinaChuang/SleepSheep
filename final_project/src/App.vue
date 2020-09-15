@@ -2,8 +2,10 @@
   <div id="app">
     <loading :active.sync="isLoading"></loading>
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">首頁</router-link> |
+      <router-link to="/about">關於我們</router-link> |
+      <router-link to="/products">商品列表</router-link> ｜
+      <router-link to="/cart">購物車</router-link>
     </div>
     <router-view/>
   </div>
@@ -17,6 +19,7 @@ export default {
     }
   },
   mounted () {
+    this.isLoading = false
     this.$http.get(`${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/products`)
       .then((res) => {
         console.log(res)
@@ -27,6 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './assets/scss/main';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
