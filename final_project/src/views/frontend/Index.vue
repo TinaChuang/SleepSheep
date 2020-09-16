@@ -1,11 +1,15 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
-    商品列表
+    this is index
   </div>
 </template>
 
 <script>
 export default {
+
 }
 </script>
+
+<style>
+
+</style>

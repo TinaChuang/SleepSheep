@@ -7,36 +7,43 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '',
+        name: 'Index',
+        component: () => import(/* webpackChunkName: "about" */ '../views/frontend/Index.vue')
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import(/* webpackChunkName: "about" */ '../views/frontend/About.vue')
+      },
+      {
+        path: '/products',
+        name: 'Products',
+        component: () => import('../views/frontend/Products.vue')
+      },
+      {
+        // 動態路由
+        path: '/product/:id',
+        name: 'Product',
+        component: () => import('../views/frontend/Product.vue')
+      },
+      {
+        path: '/cart',
+        name: 'Cart',
+        component: () => import('../views/frontend/Cart.vue')
+      }
+    ]
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/products',
-    name: 'Products',
-    component: () => import('../views/Products.vue')
-  },
-  {
-    // 動態路由
-    path: '/product/:id',
-    name: 'Product',
-    component: () => import('../views/Product.vue')
-  },
-  {
-    path: '/cart',
-    name: 'Cart',
-    component: () => import('../views/Cart.vue')
+    path: '/login',
+    component: () => import('@/views/Login.vue')
   },
   {
     path: '/admin',
-    component: () => import('../views/backend/Dashboard.vue'),
+    component: () => import('../views/Dashboard.vue'),
     children: [
       {
         path: 'products',
