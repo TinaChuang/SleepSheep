@@ -79,7 +79,36 @@ export default {
           console.log(err)
         })
     },
-    addToCart () {}
+    addToCart (id, quantity = 1) {
+      this.isLoading = true
+      const addToCartApi = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/shopping`
+      this.status.loadingItem = id
+      const cart = {
+        product: id,
+        quantity
+      }
+      this.$http
+        .post(addToCartApi, cart)
+        .then(res => {
+          this.isLoading = false
+          this.status.loadingItem = ''
+          this.$bus.$emit('get-cart')
+          this.$bus.$emit(
+            'message:push',
+            '商品已成功加入購物車!',
+            'success'
+          )
+        })
+        .catch(err => {
+          this.isLoading = false
+          this.status.loadingItem = ''
+          this.$bus.$emit(
+            'message:push',
+            `加入失敗!${err.response.data.errors}`,
+            'danger'
+          )
+        })
+    }
   }
 }
 </script>

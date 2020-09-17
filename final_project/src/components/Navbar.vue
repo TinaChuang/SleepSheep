@@ -38,10 +38,6 @@
         </li>
       </ul>
     </div>
-    <router-link to="/about">關於我們</router-link> |
-    <router-link to="/products">商品列表</router-link> ｜
-    <router-link to="/cart">購物車</router-link> |
-    <router-link to="/admin">後台</router-link>
   </div>
 </div>
 </template>

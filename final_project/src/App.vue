@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <font-awesome-icon icon="user-secret" />
+    https://github.com/FortAwesome/vue-fontawesome
     <Toast/>
     <router-view/>
   </div>
