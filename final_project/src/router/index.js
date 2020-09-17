@@ -12,12 +12,12 @@ const routes = [
       {
         path: '',
         name: 'Index',
-        component: () => import(/* webpackChunkName: "about" */ '../views/frontend/Index.vue')
+        component: () => import('../views/frontend/Index.vue')
       },
       {
         path: '/about',
         name: 'About',
-        component: () => import(/* webpackChunkName: "about" */ '../views/frontend/About.vue')
+        component: () => import('../views/frontend/About.vue')
       },
       {
         path: '/products',
@@ -43,19 +43,22 @@ const routes = [
   },
   {
     path: '/admin',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('@/views/Dashboard.vue'),
     children: [
       {
         path: 'products',
-        component: () => import('../views/backend/Products.vue')
+        name: 'Products',
+        component: () => import('@/views/backend/Products.vue')
       },
       {
         path: 'coupons',
-        component: () => import('../views/backend/Coupons.vue')
+        name: 'Coupons',
+        component: () => import('@/views/backend/Coupons.vue')
       },
       {
         path: 'orders',
-        component: () => import('../views/backend/Orders.vue')
+        name: 'Orders',
+        component: () => import('@/views/backend/Orders.vue')
       }
     ]
   },

@@ -1,18 +1,20 @@
 <template>
   <div id="app">
+    <Toast/>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Toast from '@/components/Toasts.vue'
+
 export default {
+  components: {
+    Toast
+  },
   data () {
     return {
-      isLoading: true
     }
-  },
-  mounted () {
-    this.isLoading = false
   }
 }
 </script>
@@ -22,7 +24,6 @@ export default {
 @import './assets/scss/main';
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;

@@ -52,6 +52,28 @@ export default {
   methods: {
     signIn () {
       this.isLoading = true
+      let { email, password } = this.user
+      if (email === '' || password === '') {
+        alert('請填寫帳號及密碼')
+        return false
+      }
+      const loginApi = `${process.env.VUE_APP_APIPATH}/auth/login`
+      this.$http
+        .post(loginApi, this.user)
+        .then(res => {
+          console.log(res)
+          // Token 與期限寫入 cookie
+          document.cookie = `hexHWToken=${res.data.token}; expires=${new Date(res.data.expired * 1000)}`
+          document.cookie = `hexHWUuid=${res.data.uuid}; expires=${new Date(res.data.expired * 1000)}`
+          this.$router.push('/admin')
+        })
+        .catch(err => {
+          console.log('login err: ', err)
+          alert(err)
+          email = ''
+          password = ''
+          this.isLoading = false
+        })
     }
   }
 }

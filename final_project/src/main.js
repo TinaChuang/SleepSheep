@@ -7,13 +7,23 @@ import router from './router'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
 import 'bootstrap'
-// import 'bootstrap/dist/css/bootstrap.min.css'
+
+// moneyFilter
+import moneyFilter from './filters/money'
+
+// Bus
+import './bus'
+
 window.$ = $
 Vue.config.productionTip = false
+
 // 套件加入倒 Vue 的藍圖內(原型內)
 Vue.use(VueAxios, axios)
+
 // 元件，全域註冊
 Vue.component('Loading', Loading)
+
+Vue.filter('money', moneyFilter)
 
 new Vue({
   router,
