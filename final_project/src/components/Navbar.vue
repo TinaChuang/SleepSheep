@@ -1,8 +1,8 @@
 <template>
-<div class="bg-primary sticky-top shadow-sm">
-  <div class="navbar navbar-expand-md bg-primary navbar-dark">
+<div id="header" class="sticky-top shadow-sm">
+  <div class="navbar navbar-expand-md navbar-light">
     <router-link class="navbar-brand" to="/">
-      <img src="" alt="Sleep-Sheep" title="Sleep-Sheep">
+      <img src="@/assets/logo.svg" alt="Sleep-Sheep" title="Sleep-Sheep" style="height: 50px;">
     </router-link>
     <button
       class="navbar-toggler"
@@ -18,17 +18,17 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item is-active">
-          <router-link class="nav-link ml-md-2" to="/about">關於我們</router-link>
+          <router-link class="nav-link ml-md-2" to="/about">關於眠綿羊</router-link>
         </li>
         <li class="nav-item">
-          <router-link class="nav-link mx-md-2" to="/products">眠綿羊們</router-link>
+          <router-link class="nav-link mx-md-2" to="/products">眠綿羊群</router-link>
         </li>
         <li class="nav-item d-flex">
           <router-link class="nav-link" to="/cart">
             <!-- <i class="fas fa-shopping-cart"></i> -->
             我的羊圈
             <span
-              class="badge badge-pill badge-warm"
+              class="badge badge-pill badge-info"
               style="transform: translateX(-6px) translateY(-11px)"
               v-if="carts.length"
             >
@@ -72,7 +72,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

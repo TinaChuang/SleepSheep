@@ -1,27 +1,27 @@
 <template>
   <div>
     <loading :active.sync="isLoading"/>
-    <div class="bg-light my-3">
+    <div class="my-3">
       <div class="container">
         <div class="row justify-content-center flex-md-row">
           <div class="col-md-7">
-            <div class="bg-light" v-if="order.paid === false">
+            <div v-if="order.paid === false">
               <div class="d-flex">
                 <h4 class="text-dark mb-0 font-weight-bold">結帳</h4>
               </div>
               <hr class="border-dark" style="border-width:1.5px">
               <p>
-                只差一步了！點選確認付款以完成訂單。<br>我們將在收到您的訂單後， 約 1 ~ 3 個工作天內出貨！
+                只差一步了！點選確認付款以完成訂單。<br>我們將在收到您的訂單後，約 1 ~ 3 個工作天會有專人聯絡您協助預備眠綿羊的生活環境與送達時間！
               </p>
               <img class="img-fluid w-100" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Dry9BIAASb4giKnaoSNHtSk3l5GPx4a6lcxAxtoWM9GekuI7w9wUWmb53XFkhg1WWY9rBIPobkNvyGtttxQzHfU1zKpAyZvzJLo4g4XfFQODfneK8E2tGIquXnH9rAcK.jpg" alt="">
             </div>
-            <div class="bg-light" v-else>
+            <div v-else>
               <div class="d-flex">
                 <h4 class="text-dark mb-0 font-weight-bold">訂單完成</h4>
               </div>
               <hr class="border-dark" style="border-width:1.5px">
               <p>
-                感謝您的購買！<br>您的訂單， 將在 1 ~ 3 個工作天內出貨！
+                感謝您的購買！<br>您的訂單， 將在 1 ~ 3 個工作天會有專人聯絡您協助預備眠綿羊的生活環境與送達時間！
               </p>
               <img class="img-fluid w-100" src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/XFsNBRYyHjMUY5h4K5HRSIVfW93b3jhcmYFm8SLrgOvf9FA4dphwFwYTb4e7hN9hUdD3M0CJvwoROmbZqwbc8y6H1epIqNe9uzMOUp0aLgst9h4ijvb1HT2QppKrNUNY.jpg" alt="">
             </div>
@@ -78,12 +78,16 @@
                   </tr>
                   <tr>
                     <th scope="row" class="border-0 px-0 pt-0 font-weight-normal">付款狀態</th>
-                    <td v-if="!order.paid" class="text-right border-0 px-0 pt-0 text-primary
-                    font-weight-bold">
+                    <td
+                      class="text-right border-0 px-0 pt-0 text-danger"
+                      v-if="!order.paid"
+                    >
                       尚未付款
                     </td>
-                    <td v-else class="text-right border-0 px-0 pt-0 text-success
-                    font-weight-bold">
+                    <td
+                      class="text-right border-0 px-0 pt-0 text-success font-weight-bold"
+                      v-else
+                    >
                       付款完成
                     </td>
                   </tr>
@@ -93,33 +97,34 @@
             <div class="row justify-content-end">
               <div class="col-md-6">
                 <div v-if="order.paid === false">
-                  <a class="btn btn-primary d-flex align-items-center justify-content-center"
-                  @click.prevent="payOrder" :disabled="loadingItem">
-                  確認付款
-                  <span v-if="loadingItem" class="spinner-grow spinner-grow-sm ml-2"
-                  style="width:12px;height:12px">
+                  <a
+                    class="btn btn-primary d-flex align-items-center justify-content-center"
+                    @click.prevent="payOrder"
+                    :disabled="loadingItem"
+                  >
+                    確認付款
+                  <span
+                    class="spinner-grow spinner-grow-sm ml-2"
+                    v-if="loadingItem"
+                  >
                   </span>
                   </a>
                 </div>
               </div>
             </div>
             </div>
-            <router-link to="/products" class="btn btn-outline-dark mt-3 d-none d-md-block w-50"
-            v-if="order.paid === true">
-            繼續選購
-            </router-link>
-            <router-link to="/products" class="btn btn-outline-dark mt-3 btn-block d-md-none"
-            v-if="order.paid === true">
-            繼續選購
-            </router-link>
-            <div class="mt-3" v-if="order.paid === false">
-              <a @click.prevent="backHome" class="btn btn-outline-dark w-50 d-none d-md-block" >
-              回到首頁
-              </a>
-            </div>
-            <div class="mt-3" v-if="order.paid === false">
-              <a @click.prevent="backHome" class="btn btn-outline-dark btn-block d-md-none" >
-              回到首頁
+            <div class="d-flex my-3">
+              <router-link
+                class="flex-fill btn btn-outline-secondary mx-1"
+                to="/products"
+              >
+                繼續選購
+              </router-link>
+              <a
+                class="flex-fill btn btn-outline-secondary mx-1"
+                @click.prevent="backHome"
+              >
+                回到首頁
               </a>
             </div>
               </div>
@@ -147,7 +152,7 @@ export default {
   },
   methods: {
     getOrder () {
-      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/orders/${this.orderId}`
+      const url = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/orders/${this.orderId}`
       this.isLoading = true
       this.$http
         .get(url)
@@ -166,7 +171,7 @@ export default {
         })
     },
     payOrder () {
-      const payingApi = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/orders/${this.orderId}/paying`
+      const payingApi = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/orders/${this.orderId}/paying`
       this.loadingItem = true
       this.$http
         .post(payingApi)

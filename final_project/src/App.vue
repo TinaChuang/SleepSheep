@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <font-awesome-icon icon="user-secret" />
-    https://github.com/FortAwesome/vue-fontawesome
     <Toast/>
     <router-view/>
   </div>
@@ -28,7 +26,6 @@ export default {
 #app {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
   font-family: 'Noto Sans TC','Roboto', sans-serif;
 }
 </style>

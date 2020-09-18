@@ -48,6 +48,22 @@
         <p v-html="product.description"></p>
       </div>
     </div>
+    <div class="row my-5 border-bottom">
+      <div class="col-12 col-md-3">
+        <h4 class="text-primary">購買須知</h4>
+      </div>
+      <div class="col-12 col-md-9">
+        <p>因眠綿羊屬於特殊生物，故下單後，會有專人聯絡您協助預備眠綿羊的生活環境與送達時間。</p>
+      </div>
+    </div>
+    <div class="row my-5 border-bottom">
+      <div class="col-12 col-md-3">
+        <h4 class="text-primary">退定需知</h4>
+      </div>
+      <div class="col-12 col-md-9">
+        <p>因眠綿羊屬於特殊生物，故送出退訂後，會有專人聯絡您協助送回眠綿羊的時間與方式。若是您有多次退訂的紀錄，眠綿羊可是會記仇的。</p>
+      </div>
+    </div>
   </div>
 </template>
 <script>

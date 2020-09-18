@@ -146,8 +146,8 @@ export default {
       carts: [],
       cartTotal: 0,
       form: {
-        email: '',
         name: '',
+        email: '',
         tel: '',
         address: '',
         payment: '',
@@ -166,7 +166,6 @@ export default {
         .get(getCartListApi)
         .then(res => {
           /* res 出來有問題，再查 */
-          console.log(res)
           this.isLoading = false
           this.carts = res.data.data
           this.totalPriceHandler()
@@ -179,7 +178,7 @@ export default {
     totalPriceHandler () {
       let total = 0
       this.carts.forEach(item => {
-        total += item.product.price * item.product.quantity
+        total += item.product.price * item.quantity
       })
       this.cartTotal = total
     },
@@ -188,9 +187,10 @@ export default {
       this.loadingItem = true
       const orderApi = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/ec/orders`
       const order = { ...this.form }
+      console.log(order, orderApi)
       this.$http
         .post(orderApi, order)
-        .than(res => {
+        .then(res => {
           this.isLoading = false
           this.loadingItem = ''
           this.getCart()
