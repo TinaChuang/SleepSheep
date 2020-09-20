@@ -1,6 +1,7 @@
 <template>
-  <div class="container-fluid p-5 d-flex flex-column align-items-center">
+  <div class="container-fluid py-3 px-5 d-flex flex-column align-items-center">
     <loading :active.sync="isLoading"/>
+    <h4>訂單管理</h4>
     <div class="table-responsive">
       <table class="table table-striped">
         <thead class="text-center">
@@ -17,15 +18,15 @@
             <td scope="row" class="align-middle">{{ item.created.datetime }}</td>
             <td class="d-flex flex-column justify-content-center">
               <span class="" v-for="(product, i) in item.products" :key="i">
-                {{ product.product.title }} <span class="text-muted">數量:{{ product.quantity }}
-                {{ product.product.unit }}</span>
+                {{ product.product.title }} <span class="text-muted">x{{ product.quantity }}
+                <!-- {{ product.product.unit }} --></span>
               </span>
             </td>
             <td class="align-middle">{{ item.payment }}</td>
             <td class="align-middle">{{ item.amount | money }}</td>
             <td class="align-middle">
               <div class="custom-control custom-switch">
-                <input :id="item.id" v-model="item.paid" @change="changeOrderPaid(item)"
+                <input :id="item.id" v-model="item.paid" @change="PaymentStatusHandler(item.id)"
                 type="checkbox" class="custom-control-input">
                 <label class="custom-control-label" :for="item.id">
                 <strong v-if="item.paid" class="text-success">已付款</strong>
@@ -84,7 +85,7 @@ export default {
           this.isLoading = false
           this.orders = res.data.data
           this.pagination = res.data.meta.pagination
-          console.log(res)
+          console.log(this.orders)
         })
         .catch(err => {
           this.isLoading = false
@@ -92,7 +93,9 @@ export default {
           alert('訂單資料載入失敗！請稍後再試！')
         })
     },
-    orderPaidHandler () {}
+    PaymentStatusHandler (id) {
+      console.log(id)
+    }
   }
 }
 </script>

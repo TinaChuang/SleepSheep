@@ -4,7 +4,7 @@
     <div class="section_1 d-flex align-items-center">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6">
+          <div class="col-12 col-md-6 d-flex flex-column align-items-center">
             <h1 style="font-size: 4rem;">眠綿羊</h1>
             <h3 style="font-size: 2rem;">Sleep sheep</h3>
             <p style="font-size: 1.5rem;">sleep wll with you</p>

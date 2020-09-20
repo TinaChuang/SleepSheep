@@ -1,7 +1,7 @@
 <template>
-  <div class="container-fluid p-5">
+  <div class="container-fluid py-3 px-5">
     <loading :active.sync="isLoading" />
-    <h3>商品列表</h3>
+    <h4>商品管理列表</h4>
     <div class="row justify-content-center">
       <div class="col-12 text-right">
         <button
@@ -18,8 +18,8 @@
             <thead>
               <tr>
                 <th>分類</th>
-                <th>產品圖</th>
-                <th>產品名稱</th>
+                <th>眠綿羊圖片</th>
+                <th>眠綿羊名稱</th>
                 <th>原價</th>
                 <th>售價</th>
                 <th>是否上架</th>
@@ -139,13 +139,13 @@
                         <hr>
                         <div class="form-row">
                           <div class="col-md-12 mb-6">
-                              <label for="productContent">產品說明</label>
+                              <label for="productContent">眠綿羊簡述</label>
                               <textarea type="text" class="form-control" id="productContent"
                               v-model="tempProduct.content" placeholder="請輸入產品說明">
                               </textarea>
                           </div>
                           <div class="col-md-12 mb-6">
-                              <label for="productDescription">產品資訊</label>
+                              <label for="productDescription">詳細資訊</label>
                               <textarea type="text" class="form-control" id="productDescription"
                               v-model="tempProduct.description" placeholder="請輸入產品產品資訊">
                               </textarea>
