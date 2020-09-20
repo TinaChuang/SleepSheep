@@ -2,7 +2,7 @@
   <div id="footer" class="container-fluid d-flex justify-content-between p-2">
     <div>Copyright © 2020 <b>Sleep Sheep</b> All Rights Reserved.</div>
     <div>
-      <a href="#" class="text-secondary mr-3">
+      <a href="https://github.com/TinaChuang/SleepSheep" target="_blank" class="text-secondary mr-3">
         <i class="fab fa-github-square"></i>
       </a>
       <a href="#" class="text-secondary mr-3">

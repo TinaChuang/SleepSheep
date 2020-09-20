@@ -1,7 +1,16 @@
 <template>
   <div>
     <loading :active.sync="isLoading"/>
-    <h2>商品列表</h2>
+    <div class="container-fluid banner-products py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-8 text-dark">
+            <h3>不同的眠綿羊喜歡不同的入睡方式</h3>
+            <p>檢視自己的睡眠困擾，來選擇不同的眠綿羊，讓你事半功倍。你的好睡眠，是眠綿羊最大的幸福與驕傲。</p>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="container">
       <div class="row my-3">
         <div
