@@ -26,7 +26,7 @@
             <td class="align-middle">{{ item.amount | money }}</td>
             <td class="align-middle">
               <div class="custom-control custom-switch">
-                <input :id="item.id" v-model="item.paid" @change="PaymentStatusHandler(item.id)"
+                <input :id="item.id" v-model="item.paid" @change="PaymentStatusHandler(item)"
                 type="checkbox" class="custom-control-input">
                 <label class="custom-control-label" :for="item.id">
                 <strong v-if="item.paid" class="text-success">已付款</strong>
@@ -93,8 +93,28 @@ export default {
           alert('訂單資料載入失敗！請稍後再試！')
         })
     },
-    PaymentStatusHandler (id) {
-      console.log(id)
+    PaymentStatusHandler (item) {
+      this.isLoading = true
+      let ordersHandlerApi = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/admin/ec/orders/${item.id}/paid`
+      if (!item.paid) {
+        ordersHandlerApi = `${process.env.VUE_APP_APIPATH}/${process.env.VUE_APP_UUID}/admin/ec/orders/${item.id}/unpaid`
+      }
+      this.$http
+        .patch(ordersHandlerApi)
+        .then(() => {
+          this.isLoading = false
+          this.$bus
+            .$emit(
+              'message:push',
+              '付款狀態修改成功！',
+              'success'
+            )
+          this.getOrders()
+        })
+        .catch(err => {
+          this.isLoading = false
+          console.log(err)
+        })
     }
   }
 }

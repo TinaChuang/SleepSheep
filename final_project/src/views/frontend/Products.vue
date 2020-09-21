@@ -4,7 +4,7 @@
     <div class="container-fluid banner-products py-5">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-8 text-dark">
+          <div class="col-12 col-md-8 text-light">
             <h3>不同的眠綿羊喜歡不同的入睡方式</h3>
             <p>檢視自己的睡眠困擾，來選擇不同的眠綿羊，讓你事半功倍。你的好睡眠，是眠綿羊最大的幸福與驕傲。</p>
           </div>
@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row my-3">
         <div
-          class="col-6 col-md-4 col-xl-3"
+          class="col-6 col-md-4"
           v-for="item in products"
           :key="item.id"
         >

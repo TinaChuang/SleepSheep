@@ -4,13 +4,15 @@
     <div class="section_1 d-flex align-items-center">
       <div class="container">
         <div class="row">
-          <div class="col-12 col-md-6 d-flex flex-column align-items-center">
-            <h1 style="font-size: 4rem;">眠綿羊</h1>
-            <h3 style="font-size: 2rem;">Sleep sheep</h3>
-            <p style="font-size: 1.5rem;">sleep wll with you</p>
-            <router-link class="btn btn-pink px-5" to="/products">
-              尋找你的眠綿羊
-            </router-link>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <div>
+              <h1 style="font-size: 4rem;">眠綿羊</h1>
+              <h3 style="font-size: 2rem;">Sleep sheep</h3>
+              <p style="font-size: 1.5rem;">sleep wll with you</p>
+              <router-link class="btn btn-pink px-5" to="/products">
+                尋找你的眠綿羊
+              </router-link>
+            </div>
           </div>
           <div class="col-12 col-md-6">
             <img class="img-fluid" src="@/assets/image/sheep-1.svg" alt="Sleep-Sheep" title="Sleep-Sheep">
@@ -24,14 +26,16 @@
           <div class="col-12 col-md-6">
             <img class="img-fluid" src="@/assets/image/sheep-2.svg" alt="Sleep-Sheep" title="Sleep-Sheep">
           </div>
-          <div class="col-12 col-md-6">
-            <h3>
-              與眠綿羊找回睡眠的幸福
-            </h3>
-            <p>
-              2020年，調查發現國人的慢性失眠症盛行率達10.7%。然而，即使在調整了生活作息及環境後，習慣失眠的人還是有無法順利入睡的問題。<br/>
-              眠綿羊是一群安靜、柔軟的神祕生物，相傳牠會在人們睡不著時出現在眼前，幫助人們順利入睡。
-            </p>
+          <div class="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center">
+            <div>
+              <h3>
+                與眠綿羊找回睡眠的幸福
+              </h3>
+              <p>
+                2020年，調查發現國人的慢性失眠症盛行率達10.7%。然而，即使在調整了生活作息及環境後，習慣失眠的人還是有無法順利入睡的問題。<br/>
+                眠綿羊是一群安靜、柔軟的神祕生物，相傳牠會在人們睡不著時出現在眼前，幫助人們順利入睡。
+              </p>
+            </div>
           </div>
         </div>
       </div>
