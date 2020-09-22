@@ -57,7 +57,7 @@ const routes = [
     children: [
       {
         path: 'products',
-        name: 'Products',
+        name: 'backendProducts',
         component: () => import('@/views/backend/Products.vue')
       },
       {

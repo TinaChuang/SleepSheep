@@ -29,6 +29,9 @@
         <!-- <li class="nav-item">
           <router-link class="nav-link ml-md-2" to="/admin/coupons">優惠券管理</router-link>
         </li> -->
+        <li class="nav-item">
+          <a class="nav-link ml-md-2" href="#" @click.prevent="signOut()">登出</a>
+        </li>
       </div>
     </div>
   </div>
@@ -37,7 +40,13 @@
 
 <script>
 export default {
-
+  methods: {
+    signOut () {
+      document.cookie = 'hexHWToken=; expires='
+      document.cookie = 'hexHWUuid=; expires='
+      this.$router.push('/login')
+    }
+  }
 }
 </script>
 

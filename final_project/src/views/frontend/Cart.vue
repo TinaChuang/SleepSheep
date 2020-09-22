@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading"/>
     <div class="container" v-if="carts.length">
       <div class="row justify-content-center">
-        <div class="col bg-white py-5" style="min-height: calc(100vh - 81px - 81px);">
+        <div class="col py-5">
           <div class="d-flex justify-content-center">
             <h2 class="text-dark mb-0 font-weight-bold">購物車</h2>
           </div>
@@ -63,7 +63,7 @@
                     <a
                       class="text-danger"
                       href="#"
-                      @click.prevent="deleteCartItem(item.product.id)"
+                      @click.prevent="deleteProdsHandler(item.product.id)"
                     >
                       <i class="fas fa-trash-alt"></i>
                       移除
@@ -108,8 +108,7 @@
           </div>
         </div>
         <div class="col-md-5">
-          <img class="img-fluid mt-3"
-        src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/nOoInzZIltvbLPKRcHKMFc3zyqrQyBWAGRaN9ke6zVSP9LaMndr8ta41GVAAZhKyOJ4apHZjHwuPv7sgyA96GoF4cXLSSXip7puDq1JRXK7Z7wdr8kIdnwMKU7XvB2tc.jpg" alt="">
+          <img class="img-fluid mt-3" src="https://images.pexels.com/photos/4677075/pexels-photo-4677075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
         </div>
       </div>
       <div class="row d-flex justify-content-center mt-3 mb-5">

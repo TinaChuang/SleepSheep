@@ -239,8 +239,14 @@ export default {
           this.products = res.data.data
           this.pagination = res.data.meta.pagination
         })
-        .catch(err => {
-          console.log(err)
+        .catch(() => {
+          this.isLoading = false
+          this.$bus
+            .$emit(
+              'message:post',
+              '無法取得資料，請稍後再試',
+              'danger'
+            )
         })
     },
     openModal (isNew, product) {
@@ -273,10 +279,14 @@ export default {
           this.tempProduct = res.data.data
           $('#productModal').modal('show')
         })
-        .catch(err => {
+        .catch(() => {
           this.isLoading = false
-          console.log(err)
-          alert('無法取得資料！請稍後再試！')
+          this.$bus
+            .$emit(
+              'message:post',
+              '無法取得資料，請稍後再試',
+              'danger'
+            )
         })
     },
     updateProduct () {
@@ -294,6 +304,7 @@ export default {
           this.isLoading = false
           $('#productModal').modal('hide')
           this.getProducts()
+          this.clearTempProduct()
         })
         .catch(err => {
           console.log(err)
@@ -321,12 +332,24 @@ export default {
           }
           fileInput.value = ''
           alert('圖片上傳成功！')
+          this.$bus
+            .$emit(
+              'message:post',
+              '圖片上傳成功',
+              'success'
+            )
         })
         .catch(err => {
           console.log(err.response)
           this.isLoading = false
           this.status.fileUploading = false
-          alert('圖片上傳失敗！') /* 檔案請勿超過 2MB */
+          this.$bus
+            .$emit(
+              'message:post',
+              '圖片上傳失敗！',
+              'danger'
+            )
+          alert('') /* 檔案請勿超過 2MB */
         })
     },
     deleteProduct () {
@@ -341,7 +364,19 @@ export default {
         .catch(err => {
           $('#deleteModal').modal('hide')
           alert(err)
+          this.$bus
+            .$emit(
+              'message:post',
+              '商品刪除失敗',
+              'danger'
+            )
         })
+    },
+    clearTempProduct () {
+      this.tempProduct = {
+        imageUrl: [],
+        options: {}
+      }
     }
   }
 }

@@ -60,7 +60,7 @@
           <div class="col-12 col-md-4">
             <img class="img-fluid" src="@/assets/image/item_2.png" alt="短期性失眠">
             <h5 class="text-center my-3">短期性失眠</h5>
-            <p>此類失眠的病因和短暫性失眠有所重疊，只是時間較長而已。如喪偶、離婚、男女朋友分手或”金錢被倒”等，此類問題皆會造成一時情緒上的衝擊，其平復所需的時間，往往需要數星期。</p>
+            <p>此類失眠的病因和短暫性失眠有所重疊，只是時間較長而已。如喪偶、離婚、男女朋友分手或「金錢被倒」等，此類問題皆會造成一時情緒上的衝擊，其平復所需的時間，往往需要數星期。</p>
             <p>
               持續性的調適性睡眠疾患（Persistent adjustment sleep disorder）、急性疾病導致的失眠（Acute Medical condition）
             </p>

@@ -68,7 +68,7 @@ export default {
           this.carts = res.data.data
         })
         .catch(err => {
-          console.log(err.response.data.errors)
+          console.log(err, err.response.data.errors)
         })
     }
   }

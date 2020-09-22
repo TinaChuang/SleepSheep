@@ -109,11 +109,12 @@ export default {
           )
         })
         .catch(err => {
+          console.log('addToCart: ', err)
           this.isLoading = false
           this.status.loadingItem = ''
           this.$bus.$emit(
             'message:push',
-            `加入失敗!${err.response.data.errors}`,
+            `加入失敗!${err}`,
             'danger'
           )
         })
